@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karthikeyan G · Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Karthikeyan G – Full Stack Developer, Oracle AI Certified. Premium corporate portfolio."
+    />
+    <!-- Inter font: clean professional -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f5f7fa;
+        color: #1e293b;
+        line-height: 1.5;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+
+      /* design tokens – corporate premium */
+      :root {
+        --bg-light: #f5f7fa;
+        --primary: #1e293b;
+        --accent: #2563eb;
+        --accent-dark: #1e3a8a;
+        --accent-light: #3b82f6;
+        --card-white: #ffffff;
+        --border-subtle: #e9edf2;
+        --soft-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.05),
+          0 2px 4px rgba(0, 0, 0, 0.02);
+        --text-secondary: #334155;
+      }
+
+      section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin-bottom: 2.5rem;
+        color: var(--primary);
+      }
+
+      /* ----- navbar (clean white) ----- */
+      .navbar {
+        position: sticky;
+        top: 1rem;
+        background: var(--card-white);
+        max-width: 1100px;
+        margin: 1rem auto 0;
+        padding: 0.8rem 2rem;
+        border-radius: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: var(--soft-shadow);
+        border: 1px solid var(--border-subtle);
+        z-index: 50;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--primary);
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      /* ----- HERO with profile image (flex) ----- */
+      .hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+        width: 100%;
+      }
+
+      .hero-left {
+        flex: 1.2;
+      }
+
+      .hero-right {
+        flex: 0.8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-name {
+        font-size: 3.8rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+      }
+
+      .typed-container {
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        margin: 1rem 0 1.2rem;
+        min-height: 4rem;
+      }
+
+      #typed-text {
+        color: var(--accent);
+        border-right: 2px solid var(--accent);
+        padding-right: 8px;
+      }
+
+      .hero-sub {
+        font-size: 1.2rem;
+        color: #475569;
+        margin-bottom: 2rem;
+        max-width: 550px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.7rem 1.8rem;
+        border-radius: 40px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: 0.15s;
+        margin-right: 1rem;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+        box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+      }
+
+      .btn-primary:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+      }
+
+      .btn-outline {
+        border: 1px solid var(--border-subtle);
+        background: white;
+        color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--accent);
+        background: #f8fafc;
+      }
+
+      /* ---------- IMAGE FRAME (all effects via CSS) ---------- */
+      .image-frame {
+        position: relative;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        margin-bottom: 1rem;
+      }
+
+      /* Layer 1: rotating gradient border (outer ring) */
+      .image-frame::before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+        border-radius: 50%;
+        padding: 6px;
+        background: linear-gradient(135deg, #2563eb, #1e3a8a, #3b82f6, #2563eb);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: rotateGradient 8s linear infinite;
+        box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.25);
+        pointer-events: none;
+      }
+
+      /* Layer 2: clean white padding ring */
+      .image-frame::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02),
+          0 2px 6px rgba(255, 255, 255, 0.8);
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      /* subtle inner line (kattu) */
+      .image-frame .inner-line {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        right: 6px;
+        bottom: 6px;
+        border-radius: 50%;
+        border: 1px solid rgba(30, 41, 59, 0.1);
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      @keyframes rotateGradient {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* profile image – perfect fit */
+      .profile-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        border: none;
+        position: relative;
+        z-index: 4;
+        transition: transform 0.3s ease;
+        display: block;
+        background: #e2e8f0; /* subtle background while loading */
+      }
+
+      .image-frame:hover .profile-img {
+        transform: scale(1.03);
+      }
+
+      .upload-btn:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+      }
+
+      .upload-btn:active {
+        transform: translateY(0);
+      }
+
+      .upload-btn:disabled {
+        background: #94a3b8;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        opacity: 0.7;
+      }
+
+      .locked-text {
+        font-size: 0.85rem;
+        color: #64748b;
+        margin-top: 0.4rem;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+      }
+
+      /* hidden file input */
+      #fileInput {
+        display: none;
+      }
+
+      /* small text below image */
+      .image-caption {
+        text-align: center;
+        margin-top: 0.75rem;
+      }
+
+      .image-caption .name {
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: var(--primary);
+      }
+
+      .image-caption .role {
+        font-size: 0.95rem;
+        color: #64748b;
+        letter-spacing: 0.02em;
+      }
+
+      /* ----- skill cards (corporate, no emoji) ----- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .skill-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .skill-card {
+        background: var(--card-white);
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        box-shadow: var(--soft-shadow);
+        border: 1px solid var(--border-subtle);
+        transition: 0.2s;
+      }
+
+      .skill-card:hover {
+        box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+      }
+
+      .skill-card h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--primary);
+      }
+
+      .skill-card p {
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .skill-desc {
+        font-size: 0.9rem;
+        color: #64748b;
+        line-height: 1.4;
+      }
+
+      /* chart card (clean) */
+      .chart-card {
+        background: var(--card-white);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: var(--soft-shadow);
+        border: 1px solid var(--border-subtle);
+      }
+
+      .chart-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 1.5rem auto;
+      }
+
+      .circular-chart {
+        transform: rotate(-90deg);
+        width: 100%;
+        height: 100%;
+      }
+
+      .circle-bg {
+        stroke: #e2e8f0;
+        stroke-width: 8;
+        fill: none;
+      }
+
+      .circle-progress {
+        stroke: var(--accent);
+        stroke-width: 8;
+        fill: none;
+        stroke-linecap: round;
+        stroke-dasharray: 0 251.2;
+        transition: stroke-dasharray 1s ease;
+      }
+
+      .chart-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: var(--primary);
+      }
+
+      .skill-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem 1.8rem;
+        margin-top: 2rem;
+      }
+
+      .stat-item {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        color: var(--primary);
+        border-bottom: 1px dashed #dae0e8;
+        padding-bottom: 0.3rem;
+      }
+
+      .badge {
+        margin-top: 1.5rem;
+        text-align: center;
+        background: #eef2ff;
+        color: var(--accent);
+        padding: 0.6rem;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid rgba(37, 99, 235, 0.15);
+      }
+
+      /* project card */
+      .project-card {
+        background: var(--card-white);
+        border-radius: 16px;
+        padding: 2.5rem;
+        box-shadow: var(--soft-shadow);
+        border: 1px solid var(--border-subtle);
+        max-width: 800px;
+      }
+
+      .btn-github {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.6rem 1.8rem;
+        background: var(--primary);
+        color: white;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.15s;
+      }
+
+      .btn-github:hover {
+        background: #0f172a;
+      }
+
+      /* contact */
+      .contact-flex {
+        display: flex;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+      }
+
+      .contact-btn {
+        background: white;
+        padding: 0.8rem 2rem;
+        border-radius: 60px;
+        border: 1px solid var(--border-subtle);
+        text-decoration: none;
+        color: var(--primary);
+        font-weight: 500;
+        transition: 0.2s;
+        box-shadow: var(--soft-shadow);
+      }
+
+      .contact-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* thank you */
+      .thankyou-section {
+        background: white;
+        border-radius: 24px 24px 0 0;
+        margin-top: 3rem;
+        padding: 4rem 2rem;
+        text-align: center;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .thankyou-content h2 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .thankyou-content p {
+        font-size: 1.8rem;
+        color: #475569;
+      }
+
+      /* fade-in */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* CHAT */
+      .chat-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .chat-button {
+        width: 60px;
+        height: 60px;
+        background: var(--accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+        border: none;
+        transition: transform 0.2s;
+        color: white;
+        font-size: 26px;
+      }
+
+      .chat-button:hover {
+        transform: scale(1.05);
+      }
+
+      .chat-window {
+        width: 320px;
+        max-width: 85vw;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+        margin-bottom: 15px;
+        border: 1px solid var(--border-subtle);
+        overflow: hidden;
+        display: none;
+        flex-direction: column;
+        transform-origin: bottom right;
+        animation: chatPop 0.2s ease;
+      }
+
+      .chat-window.open {
+        display: flex;
+      }
+
+      @keyframes chatPop {
+        0% {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .chat-header {
+        background: var(--primary);
+        color: white;
+        padding: 1rem 1.2rem;
+        font-weight: 600;
+      }
+
+      .chat-messages {
+        min-height: 220px;
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 1rem;
+        background: #f9fafc;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .message {
+        padding: 0.7rem 1rem;
+        border-radius: 18px;
+        max-width: 85%;
+        word-wrap: break-word;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      .message.user {
+        background: var(--accent);
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+      }
+
+      .message.bot {
+        background: white;
+        border: 1px solid var(--border-subtle);
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+      }
+
+      .chat-input-area {
+        display: flex;
+        border-top: 1px solid var(--border-subtle);
+        padding: 0.6rem;
+        background: white;
+      }
+
+      .chat-input-area input {
+        flex: 1;
+        padding: 0.7rem 1rem;
+        border: 1px solid #dde3e9;
+        border-radius: 40px;
+        outline: none;
+        font-family: "Inter", sans-serif;
+      }
+
+      .chat-input-area input:focus {
+        border-color: var(--accent);
+      }
+
+      .chat-input-area button {
+        background: var(--accent);
+        border: none;
+        color: white;
+        font-weight: 600;
+        padding: 0.7rem 1.2rem;
+        margin-left: 0.5rem;
+        border-radius: 40px;
+        cursor: pointer;
+      }
+
+      /* mobile: image above text */
+      @media (max-width: 850px) {
+        .hero-container {
+          flex-direction: column-reverse;
+          text-align: center;
+        }
+        .hero-left {
+          text-align: center;
+        }
+        .hero-sub {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .image-frame {
+          width: 220px;
+          height: 220px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .navbar {
+          flex-direction: column;
+          gap: 0.8rem;
+        }
+        .nav-links {
+          gap: 1.5rem;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .skill-cards {
+          grid-template-columns: 1fr;
+        }
+        .hero-name {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Karthikeyan G</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Hero Section with one-time profile image upload -->
+      <section id="hero" class="hero fade-in-section">
+        <div class="hero-container">
+          <!-- left side: text -->
+          <div class="hero-left">
+            <div class="hero-name">Karthikeyan G</div>
+            <div class="typed-container" id="typed-container">
+              <span id="typed-text"></span>
+            </div>
+            <p class="hero-sub">
+              Full Stack Developer · Building scalable web applications with
+              clean architecture.
+            </p>
+            <div>
+              <a href="#projects" class="btn btn-primary">View Projects</a>
+              <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+          </div>
+          <!-- right side: profile with upload button (one-time) -->
+          <div class="hero-right">
+            <div class="image-frame">
+              <img src="profile.jpg" alt="Karthikeyan G" class="profile-img" />
+              <div class="inner-line"></div>
+            </div>
+
+            <!-- Locked text (shown when locked) -->
+
+            <div class="image-caption">
+              <div class="name">Karthikeyan G</div>
+              <div class="role">Full Stack Developer</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About & Skills (corporate cards, no emoji) -->
+      <section id="about" class="fade-in-section">
+        <h2 class="section-title">About & Skills</h2>
+        <div class="about-grid">
+          <!-- skill cards -->
+          <div class="skill-cards">
+            <div class="skill-card">
+              <h3>Programming Languages</h3>
+              <p>C, C++, Java, JavaScript</p>
+              <div class="skill-desc">
+                Strong foundation in OOP & problem solving.
+              </div>
+            </div>
+            <div class="skill-card">
+              <h3>Frontend Development</h3>
+              <p>HTML5, CSS3, React.js</p>
+              <div class="skill-desc">Responsive UI, modern interfaces.</div>
+            </div>
+            <div class="skill-card">
+              <h3>Backend Development</h3>
+              <p>Node.js, Express.js</p>
+              <div class="skill-desc">
+                REST APIs, auth, scalable architecture.
+              </div>
+            </div>
+            <div class="skill-card">
+              <h3>Databases</h3>
+              <p>MongoDB, MySQL</p>
+              <div class="skill-desc">Data modeling, efficient querying.</div>
+            </div>
+          </div>
+
+          <!-- chart card -->
+          <div class="chart-card">
+            <h3 style="color: var(--primary); text-align: center">
+              Competency overview
+            </h3>
+            <div class="chart-container">
+              <svg viewBox="0 0 100 100" class="circular-chart">
+                <circle class="circle-bg" cx="50" cy="50" r="40"></circle>
+                <circle
+                  class="circle-progress"
+                  cx="50"
+                  cy="50"
+                  r="40"
+                  id="skillChart"
+                  style="stroke-dasharray: 0 251.2"
+                ></circle>
+              </svg>
+              <div class="chart-center"><span>85%</span></div>
+            </div>
+            <div class="skill-stats">
+              <div class="stat-item"><span>C++</span> <span>85%</span></div>
+              <div class="stat-item"><span>Java</span> <span>80%</span></div>
+              <div class="stat-item"><span>Node.js</span> <span>75%</span></div>
+              <div class="stat-item"><span>MongoDB</span> <span>70%</span></div>
+            </div>
+            <div class="badge">Oracle AI Certified</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="fade-in-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-card">
+          <h3>Campus Fault Reporting System</h3>
+          <p>
+            Full Stack Web Application with role‑based login, complaint
+            tracking, and MongoDB integration using REST APIs. Features JWT
+            authentication and real‑time status updates.
+          </p>
+          <p>
+            <strong>Tech:</strong> HTML, CSS, JavaScript, Node.js, Express,
+            MongoDB
+          </p>
+          <a href="#" class="btn-github">View on GitHub</a>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="fade-in-section">
+        <h2 class="section-title">Contact</h2>
+        <p style="color: #334155; margin-bottom: 1rem">
+          Interested in internships or collaborations? Let's connect.
+        </p>
+
+        <!-- Location -->
+        <p style="color: #475569; margin-bottom: 2rem">📍 Ammapettai, Salem</p>
+
+        <div class="contact-flex">
+          <a href="mailto:karthikeyan.g@example.com" class="contact-btn">
+            📧 Email
+          </a>
+
+          <a
+            href="https://github.com/karthikeyan-g"
+            target="_blank"
+            class="contact-btn"
+          >
+            💻 GitHub
+          </a>
+
+          <a href="https://surl.li/sxyrcq" target="_blank" class="contact-btn">
+            🔗 LinkedIn
+          </a>
+        </div>
+      </section>
+
+      <!-- Thank you -->
+      <section class="thankyou-section fade-in-section">
+        <div class="thankyou-content">
+          <h2>Thank You for Visiting</h2>
+          <p>I appreciate your time.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Chatbot (professional replies) -->
+    <div class="chat-container">
+      <div class="chat-window" id="chatWindow">
+        <div class="chat-header">Ask Karthikeyan</div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot">
+            Hello, I'm here to answer your questions about Karthikeyan's
+            profile.
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <input type="text" id="chatInput" placeholder="Type a question..." />
+          <button id="sendChatBtn">Send</button>
+        </div>
+      </div>
+      <div class="chat-button" id="chatButton">💬</div>
+    </div>
+
+    <script>
+      (function () {
+        // fade in on scroll
+        const faders = document.querySelectorAll(".fade-in-section");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.15 }
+        );
+        faders.forEach((el) => observer.observe(el));
+
+        // typing effect (professional)
+        const typedEl = document.getElementById("typed-text");
+        const phrases = [
+          "Building scalable web applications.",
+          "Full Stack Developer.",
+          "C++ · Java · Node.js",
+        ];
+        let phraseIdx = 0,
+          charIdx = 0,
+          isDeleting = false;
+
+        function typeEffect() {
+          if (!typedEl) return;
+          const current = phrases[phraseIdx];
+          if (isDeleting) {
+            typedEl.textContent = current.substring(0, charIdx - 1);
+            charIdx--;
+          } else {
+            typedEl.textContent = current.substring(0, charIdx + 1);
+            charIdx++;
+          }
+
+          if (!isDeleting && charIdx === current.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1500);
+          } else if (isDeleting && charIdx === 0) {
+            isDeleting = false;
+            phraseIdx = (phraseIdx + 1) % phrases.length;
+            setTimeout(typeEffect, 200);
+          } else {
+            setTimeout(typeEffect, isDeleting ? 40 : 80);
+          }
+        }
+        typeEffect();
+
+        // chart animation (C++ 85%)
+        const chart = document.getElementById("skillChart");
+        const chartCard = document.querySelector(".chart-card");
+        let chartAnimated = false;
+        function animateChart() {
+          if (
+            !chartAnimated &&
+            chartCard &&
+            chartCard.getBoundingClientRect().top < window.innerHeight - 50
+          ) {
+            const circumference = 2 * Math.PI * 40;
+            const target = (85 / 100) * circumference;
+            chart.style.strokeDasharray = `${target} ${circumference}`;
+            chartAnimated = true;
+          }
+        }
+        window.addEventListener("scroll", animateChart);
+        setTimeout(animateChart, 300);
+
+        // ---------- CHATBOT (professional replies) ----------
+        const chatBtn = document.getElementById("chatButton");
+        const chatWindow = document.getElementById("chatWindow");
+        const chatMessages = document.getElementById("chatMessages");
+        const chatInput = document.getElementById("chatInput");
+        const sendBtn = document.getElementById("sendChatBtn");
+
+        chatBtn.addEventListener("click", () => {
+          chatWindow.classList.toggle("open");
+        });
+
+        function addMessage(text, sender) {
+          const msgDiv = document.createElement("div");
+          msgDiv.classList.add("message", sender);
+          msgDiv.textContent = text;
+          chatMessages.appendChild(msgDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getBotReply(msg) {
+          const lower = msg.toLowerCase();
+          if (lower.includes("who are you") || lower.includes("name")) {
+            return "I'm Karthikeyan G, Full Stack Developer.";
+          }
+          if (
+            lower.includes("skill") ||
+            lower.includes("technologies") ||
+            lower.includes("know")
+          ) {
+            return "Skills: C, C++, Java, HTML, CSS, JavaScript, Node.js, Express, MongoDB.";
+          }
+          if (lower.includes("project")) {
+            return "Main project: Campus Fault Reporting System (MERN stack, JWT, REST).";
+          }
+          if (lower.includes("contact") || lower.includes("email")) {
+            return "Email: karthikeyan.g@example.com · GitHub: github.com/karthikeyan-g";
+          }
+          if (
+            lower.includes("internship") ||
+            lower.includes("available") ||
+            lower.includes("collaboration")
+          ) {
+            return "Yes, I'm open for internships and collaborations.";
+          }
+          if (lower.includes("certified") || lower.includes("oracle")) {
+            return "I hold an Oracle AI certification.";
+          }
+          return "Thank you for your interest! You can check the About or Contact sections for more details.";
+        }
+
+        function handleSend() {
+          const question = chatInput.value.trim();
+          if (!question) return;
+          addMessage(question, "user");
+          chatInput.value = "";
+          setTimeout(() => {
+            const reply = getBotReply(question);
+            addMessage(reply, "bot");
+          }, 300);
+        }
+
+        sendBtn.addEventListener("click", handleSend);
+        chatInput.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") handleSend();
+        });
+
+        chatWindow.classList.remove("open"); // hidden by default
+      })();
+    </script>
+  </body>
+</html>
